@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escalade | Passion Verticale</title>
+    <style>
+        :root {
+            --roche: #8B7355;
+            --roche-clair: #C4A97D;
+            --ciel: #1a1a2e;
+            --neige: #f5f0e8;
+            --accent: #E85D3A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--ciel);
+            color: var(--neige);
+            line-height: 1.7;
+        }
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '▲';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.06;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(180deg);
+            color: var(--roche-clair);
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--roche-clair), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.7;
+            max-width: 600px;
+            padding: 0 1rem;
+        }
+        .hero .icone {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--roche-clair);
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        /* Types d'escalade */
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .type-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .type-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--roche-clair);
+            background: rgba(255,255,255,0.07);
+        }
+        .type-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .type-card h3 {
+            font-size: 1.3rem;
+            color: var(--roche-clair);
+            margin-bottom: 0.8rem;
+        }
+        .type-card p {
+            font-size: 0.95rem;
+            opacity: 0.75;
+        }
+
+        /* Spots */
+        .spots-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .spot-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+        .spot-item strong {
+            color: var(--roche-clair);
+            min-width: 120px;
+        }
+        .spot-item span {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Citation */
+        .quote {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-style: italic;
+            font-size: 1.3rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .quote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.5;
+        }
+
+        /* Matos */
+        .matos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        .matos-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+        }
+        .matos-item .emoji {
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
+        }
+        .matos-item .label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.4;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            section { padding: 3rem 1rem; }
+            .spot-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="icone">🧗</div>
+        <h1>Escalade</h1>
+        <p>Entre verticalité, dépassement de soi et communion avec la roche — un sport, une philosophie, un art de vivre.</p>
+    </header>
+
+    <section>
+        <h2>Les disciplines</h2>
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="emoji">🏔️</div>
+                <h3>Escalade en falaise</h3>
+                <p>Le grand air, le bruit du vent, la roche sous les doigts. Voies équipées ou naturelles, du 3 au 9c.</p>
+            </div>
+            <div class="type-card">
+                <div class="emoji">🧗‍♂️</div>
+                <h3>Bloc</h3>
+                <p>Puissance et technique sur des passages courts mais intenses. Pas de corde, juste un crash pad et de la volonté.</p>
+            </div>
+            <div class="type-card">
+                <div class="emoji">🏛️</div>
+                <h3>SAE (Salle)</h3>
+                <p>L'entraînement en intérieur. Voies de tous niveaux, pan incliné, dévers — la progression toute l'année.</p>
+            </div>
+            <div class="type-card">
+                <div class="emoji">🧊</div>
+                <h3>Escalade glaciaire</h3>
+                <p>Piolets et crampons sur les cascades de glace. L'hiver, le terrain de jeu se métamorphose.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Top spots en France</h2>
+        <div class="spots-list">
+            <div class="spot-item"><strong>Fontainebleau</strong><span>Mecque mondiale du bloc. 30 000 passages en grès au cœur de la forêt.</span></div>
+            <div class="spot-item"><strong>Les Calanques</strong><span>Marseille — calcaire à couper le souffle, vue mer, ambiance méditerranéenne.</span></div>
+            <div class="spot-item"><strong>Verdon</strong><span>Le plus grand canyon d'Europe. Voies mythiques de 300 à 400 mètres.</span></div>
+            <div class="spot-item"><strong>Chamonix</strong><span>Alpinisme et grandes voies. Le Mont-Blanc en toile de fond.</span></div>
+            <div class="spot-item"><strong>Sainte-Victoire</strong><span>Calcaire chaud, dévers soutenus. Le spot de Cézanne et des grimpeurs.</span></div>
+            <div class="spot-item"><strong>Annot</strong><span>Grès bigarré, ambiance canyon. Voies faciles à très engagées.</span></div>
+        </div>
+    </section>
+
+    <div class="quote">
+        "L'escalade, c'est résoudre des problèmes avec son corps. Chaque prise est une question, chaque mouvement une réponse."
+        <cite>— Un grimpeur</cite>
+    </div>
+
+    <section>
+        <h2>L'équipement essentiel</h2>
+        <div class="matos-grid">
+            <div class="matos-item">
+                <div class="emoji">👟</div>
+                <div class="label">Chaussons d'escalade</div>
+            </div>
+            <div class="matos-item">
+                <div class="emoji">🧗</div>
+                <div class="label">Baudrier</div>
+            </div>
+            <div class="matos-item">
+                <div class="emoji">🪢</div>
+                <div class="label">Corde dynamique</div>
+            </div>
+            <div class="matos-item">
+                <div class="emoji">⛓️</div>
+                <div class="label">Dégaines & mousquetons</div>
+            </div>
+            <div class="matos-item">
+                <div class="emoji">🪐</div>
+                <div class="label">Assureur (Grigri / ATC)</div>
+            </div>
+            <div class="matos-item">
+                <div class="emoji">🛡️</div>
+                <div class="label">Crash pad (bloc)</div>
+            </div>
+            <div class="matos-item">
+                <div class="emoji">🧴</div>
+                <div class="label">Magnésie</div>
+            </div>
+            <div class="matos-item">
+                <div class="emoji">🎒</div>
+                <div class="label">Sac à dos</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Pourquoi grimper ?</h2>
+        <p style="opacity:0.8; max-width:750px">
+            Parce que chaque voie est une histoire. Parce que le sommet n'est qu'un prétexte —
+            ce qui compte, c'est le chemin parcouru, les prises trouvées, les chutes encaissées et les réussites partagées.
+            L'escalade muscle le corps et l'esprit. Elle apprend la patience, la lecture, la confiance en soi et dans l'autre.
+        </p>
+        <p style="opacity:0.8; max-width:750px; margin-top:1rem">
+            Que tu sois débutant ou grimpeur confirmé, il y a toujours une voie qui t'attend.
+            Alors chausse tes chaussons, serre le nœud de huit, et lance-toi.
+        </p>
+    </section>
+
+    <footer>
+        Page escalade — ClawFabriceH92 &copy; 2026 &bull; Tous droits réservés
+    </footer>
+
+</body>
+</html>
